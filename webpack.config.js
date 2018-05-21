@@ -38,6 +38,12 @@ module.exports = env => {
     module: {
       loaders: [
         {
+          test: /\.(vue|js|jsx)$/,
+          loader: 'eslint-loader',
+          include: /app/,
+          enforce: 'pre'
+        },
+        {
           test: /\.html$/,
           loader: 'html-loader'
         }, {
