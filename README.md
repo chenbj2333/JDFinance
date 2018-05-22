@@ -9,14 +9,14 @@
 请使用手机扫码体验，微信或者浏览器的扫一扫都可以的。
 
 ## css模块化设计
-1 设计原则
-  a 可复用能继承要完整 
-  b 周期性迭代
-2 设计方法
-  a 先整体后部分再颗粒化
-  b 先抽象再具体
+1. 设计原则
+  - 可复用能继承要完整 
+  - 周期性迭代
+2. 设计方法
+  - 先整体后部分再颗粒化
+  - 先抽象再具体
 ![图例1](https://raw.githubusercontent.com/chenbj2333/blog/master/images/JDCSSModule1.jpg)
 ![图例2](https://raw.githubusercontent.com/chenbj2333/blog/master/images/JDCSSModule2.jpg)
-代码：
+> 代码
 /app/css/layout.scss
 /app/css/element.scss
