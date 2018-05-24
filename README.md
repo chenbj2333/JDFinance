@@ -48,3 +48,5 @@
 2. 工作原理
   - history API
   - hash
+  ![图例3](https://raw.githubusercontent.com/chenbj2333/blog/master/images/route-history.jpg)
+  ![图例4](https://raw.githubusercontent.com/chenbj2333/blog/master/images/route-hash.jpg)
