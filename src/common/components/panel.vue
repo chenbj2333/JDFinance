@@ -18,7 +18,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-  @import "../../css/element.scss";
+  @import "../../assets/styles/element.scss";
   .panel {
     @include panel;
   }
