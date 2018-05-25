@@ -8,7 +8,7 @@ export default {
   props: {
     cname: {type: String, default: ""}
   },
-  data () {
+  data() {
     return {
       btnClass: 'btn',
     }
