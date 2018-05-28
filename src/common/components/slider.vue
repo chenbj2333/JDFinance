@@ -2,19 +2,20 @@
   <section :class="cname">
     <swiper :options="swiperOption" ref="mySwiper" :not-next-tick="swiperOption.notNextTick">
       <!-- slides -->
-      <swiper-slide v-for="item of items" :key="item.href">
+      <swiper-slide v-for="item of items" :key="item.id">
         <router-link :to="{name: item.href}">
-          <img :src="item.src" alt="">
+          <img :src="item.url" alt="">
         </router-link>
       </swiper-slide>
       <!-- Optional controls -->
-      <div v-if="swiperOption.pagination" class="swiper-pagination"  slot="pagination"></div>
+      <div v-if="swiperOption.pagination" class="swiper-pagination" slot="pagination"></div>
     </swiper>
   </section>
 </template>
 <script>
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 export default {
+  name: 'Slider',
   components: {
     swiper,
     swiperSlide
