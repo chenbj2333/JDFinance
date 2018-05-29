@@ -1,8 +1,8 @@
 <template>
   <article class="home-slider">
-    <Slider :items="sliderData" />
-    <section class="list">
-      <div class="item" v-for="item in enters" :key="item.id">
+    <Slider :swiperOption="swiperOption" :items="sliderData" :cname="$style.slider" />
+    <section :class="$style.list">
+      <div :class="$style.item" v-for="item in enters" :key="item.id">
         <img :src="item.url" alt="item.title">
         <h4>{{item.title}}</h4>
       </div>
@@ -19,6 +19,15 @@ export default {
   },
   data () {
     return {
+      swiperOption: {
+        pagination: {
+          el: '.swiper-pagination'
+        },
+        loop: true,
+        autoplay: {
+          disableOnInteraction: false
+        }
+      },
       sliderData: [
         {
           id: '01',
@@ -71,29 +80,37 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
-.home-slider {
-  margin-top: 110px;
+<style lang="scss" module>
+@import '../../../assets/styles/element.scss';
+
+  .slider {
+    margin-top: 110px;
+
+    img {
+      width: 100%;
+    }
+  }
 
   .list {
-    display: flex;
-    flex-direction: row;
+    @include list(row);
+    background: #fff;
+    padding: 40px 0 20px 0;
+    justify-content: space-around;
 
     .item {
-      width: 25%;
       text-align: center;
 
       > img {
-        width: 90px;
-        height: 90px;
+        display: inline-block;
+        width: 80px;
+        height: 80px;
       }
 
       > h4 {
-        font-size: 24px;
-        margin: 0;
-        font-weight: normal;
+        font-size: 26px;
+        margin-top: 12px;
+        color: #666;
       }
     }
   }
-}
 </style>

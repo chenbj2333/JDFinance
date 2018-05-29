@@ -1,11 +1,12 @@
 <template>
   <section :class="[panelClass, cname]">
-    <h4>-{{title}}-</h4>
+    <h4>- {{title}} -</h4>
     <slot />
   </section>
 </template>
 <script>
 export default {
+  name: 'Panel',
   props: {
     title: {type: String, default: ""},
     cname: {type: String, default: ""}

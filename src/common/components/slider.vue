@@ -1,5 +1,5 @@
 <template>
-  <section :class="cname">
+  <section :class="[swiperClass, cname]">
     <swiper :options="swiperOption" ref="mySwiper" :not-next-tick="swiperOption.notNextTick">
       <!-- slides -->
       <swiper-slide v-for="item of items" :key="item.id">
@@ -36,11 +36,16 @@ export default {
         return []
       }
     }
+  },
+  data () {
+    return {
+      swiperClass: 'swiper'
+    }
   }
 }
 </script>
 <style lang="scss" scoped>
-@import '~swiper/dist/css/swiper.css';
+  @import '~swiper/dist/css/swiper.css';
 
 </style>
 
