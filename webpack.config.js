@@ -33,7 +33,13 @@ module.exports = env => {
       compress: true,
       port: 9000,
       clientLogLevel: 'none',
-      quiet: true
+      quiet: true,
+      proxy: {
+        '/api': {
+          'target': 'http://localhost:8080',
+          'pathRewrite': { '^/api': '/pep' }
+        }
+      }
     },
     module: {
       loaders: [
