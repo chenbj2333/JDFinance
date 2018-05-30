@@ -75,10 +75,11 @@ export default {
       border: 1px solid #FF5155;
       color: #FF5155;
       font-size: 20px;
-      padding: 2px 3px;
+      padding: 4px 6px;
       margin-left: 10px;
       height: 17px;
       line-height: 17px;
+      border-radius: 4px;
     }
   }
 </style>
