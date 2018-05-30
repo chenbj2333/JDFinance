@@ -2,6 +2,7 @@
   <div>
     <layout-header></layout-header>
     <home-slider></home-slider>
+    <home-adver></home-adver>
     <home-novice :homeNoviceData="homeNoviceData"></home-novice>
   </div>
 </template>
@@ -9,6 +10,7 @@
 <script>
 import LayoutHeader from '../../common/layout/header.vue'
 import HomeSlider from './components/homeSlider.vue'
+import HomeAdver from './components/homeAdver.vue'
 import HomeNovice from './components/novice.vue'
 import axios from 'axios'
 
@@ -17,7 +19,8 @@ export default {
   components: {
     LayoutHeader,
     HomeSlider,
-    HomeNovice
+    HomeNovice,
+    HomeAdver
   },
   data () {
     return {
