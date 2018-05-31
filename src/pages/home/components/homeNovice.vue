@@ -1,7 +1,7 @@
 <template>
   <Panel title="理财精选" :cname="$style.panel">
     <section :class="$style.content">
-      <div :class="$style.item" v-for="i of homeNoviceData" :key="i.id">
+      <div :class="$style.item" v-for="i of noviceList" :key="i.id">
         <h4>{{i.title}}<span :class="$style.red">{{i.subtitle}}</span></h4>
         <p :class="$style.number">{{i.number}}</p>
         <p :class="$style.text">{{i.text}}</p>
@@ -11,12 +11,12 @@
 </template>
 
 <script>
-import Panel from '../../../common/components/panel.vue'
+import Panel from '../../../common/components/panel.vue';
 
 export default {
   name: 'HomeNovice',
   props: {
-    homeNoviceData: {
+    noviceList: {
       type: Array,
       default() {
         return []
@@ -83,5 +83,3 @@ export default {
     }
   }
 </style>
-
-

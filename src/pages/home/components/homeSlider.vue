@@ -1,6 +1,6 @@
 <template>
   <article class="home-slider">
-    <Slider :swiperOption="swiperOption" :items="sliderData" :cname="$style.slider" />
+    <Slider :swiperOption="swiperOption" :items="sliderData" cname="slider" />
     <section :class="$style.list">
       <div :class="$style.item" v-for="item in enters" :key="item.id">
         <img :src="item.url" alt="item.title">
@@ -21,7 +21,8 @@ export default {
     return {
       swiperOption: {
         pagination: {
-          el: '.swiper-pagination'
+          el: '.swiper-pagination',
+          bulletActiveClass: 'swiper-bullet-active'
         },
         loop: true,
         autoplay: {
@@ -80,16 +81,22 @@ export default {
   }
 }
 </script>
-<style lang="scss" module>
-@import '../../../assets/styles/element.scss';
-
+<style lang="scss">
   .slider {
     margin-top: 110px;
 
     img {
       width: 100%;
     }
+
+    .swiper-bullet-active {
+      background: #fff;
+      opacity: .9;
+    }
   }
+</style>
+<style lang="scss" module>
+@import '../../../assets/styles/element.scss';
 
   .list {
     @include list(row);
