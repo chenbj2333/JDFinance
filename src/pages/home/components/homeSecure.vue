@@ -1,8 +1,7 @@
 <template lang="html">
-  <Panel title="众筹新品" :class="$style.panel">
+  <Panel title="保险保障" :class="$style.panel">
     <section :class="$style.content">
-      <div class="arrow">更多尖货 ></div>
-      <Slider :swiperOption="swiperOption" :items="productLsit" cname="product-slider"/>
+      <Slider :swiperOption="swiperOption" :items="secureList" cname="secure-slider"/>
     </section>
   </Panel>
 </template>
@@ -11,13 +10,13 @@ import Slider from '../../../common/components/slider.vue';
 import Panel from '../../../common/components/panel.vue';
 
 export default {
-  name: 'HomeProduct',
+  name: 'HomeSecure',
   components: {
     Slider,
     Panel
   },
   props: {
-    productLsit: {
+    secureList: {
       type: Array,
       default() {
         return []
@@ -36,7 +35,7 @@ export default {
 }
 </script>
 <style lang="scss">
-  .product-slider{
+  .secure-slider{
     .swiper-container{
       box-sizing: border-box;
       padding: 0 24px;
@@ -47,7 +46,7 @@ export default {
           img{
             width: 100%;
             display: block;
-            height: 274px;
+            height: 254px;
             border: 1px solid #fafafa;
           }
         }
@@ -65,14 +64,6 @@ export default {
     }
     .content{
       padding-bottom: 40px;
-      position: relative;
-      & > div{
-        position: absolute;
-        font-size: 28px;
-        color: #999;
-        right:20px;
-        top: -70px;
-      }
     }
   }
 </style>
