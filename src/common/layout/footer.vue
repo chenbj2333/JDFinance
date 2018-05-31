@@ -9,12 +9,12 @@
 <script>
 
 export default {
-  name: 'HomeFooter'
+  name: 'LayoutFooter'
 }
 </script>
 
 <style lang="scss" module>
-  @import './../../../assets/styles/element.scss';
+  @import '../../assets/styles/element.scss';
   
   .content {
     margin-bottom: 20px;

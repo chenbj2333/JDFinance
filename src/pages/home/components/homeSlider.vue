@@ -1,6 +1,6 @@
 <template>
   <article class="home-slider">
-    <Slider :swiperOption="swiperOption" :items="sliderData" cname="slider" />
+    <Slider :swiperOption="swiperOption" :items="sliderList" cname="slider" />
     <section :class="$style.list">
       <div :class="$style.item" v-for="item in enters" :key="item.id">
         <img :src="item.url" alt="item.title">
@@ -17,6 +17,20 @@ export default {
   components: {
     Slider
   },
+  props: {
+    sliderList: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
+    enters: {
+      type: Array,
+      default () {
+        return []
+      }
+    }
+  },
   data () {
     return {
       swiperOption: {
@@ -28,55 +42,7 @@ export default {
         autoplay: {
           disableOnInteraction: false
         }
-      },
-      sliderData: [
-        {
-          id: '01',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t20971/148/288416453/44596/48b1265b/5b07ff25N1625f567.jpg?width=750&height=320',
-          href: '',
-        },
-        {
-          id: '02',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t21796/202/262602945/28303/f848cd6b/5b07ff5cN9b554c5b.jpg?width=750&height=320',
-          href: '',
-        },
-        {
-          id: '03',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t21160/321/265171359/49600/f6486521/5b07ff97Nf764b48d.jpg?width=750&height=320',
-          href: '',
-        },
-        {
-          id: '04',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t20872/57/274489560/49683/e8527414/5b07ffa1N82e0282b.jpg?width=750&height=320',
-          href: '',
-        }
-      ],
-      enters: [
-        {
-          id: '1',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t3991/64/2521945388/12110/93c0139/58d1e462Ncf294123.png?width=132&height=132',
-          href: '',
-          title: '优惠券'
-        },
-        {
-          id: '2',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t5590/252/875247023/17343/946aa72c/59224650N0f7ffc92.png?width=132&height=132',
-          href: '',
-          title: '领红包'
-        },
-        {
-          id: '3',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t4393/329/2180608902/13217/c88c0cec/58ec9dcdN1534e2d7.png?width=132&height=132',
-          href: '',
-          title: '抢钢镚'
-        },
-        {
-          id: '4',
-          url: 'https://img12.360buyimg.com/jrpmobile/jfs/t5488/298/1036263348/12073/b4f4de97/590ac8e8Ne9def22e.png?width=135&height=135',
-          href: '',
-          title: '白条提额'
-        }
-      ]
+      }
     }
   }
 }

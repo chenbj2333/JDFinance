@@ -1,14 +1,14 @@
 <template>
   <div>
     <layout-header></layout-header>
-    <home-slider></home-slider>
+    <home-slider :sliderList="sliderList" :enters="enterList"></home-slider>
     <home-adver></home-adver>
     <home-novice :noviceList="noviceList"></home-novice>
     <home-product :productLsit="productLsit"></home-product>
     <home-secure :secureList="secureList"></home-secure>
-    <home-life></home-life>
-    <home-custom></home-custom>
-    <home-footer></home-footer>
+    <home-life :lifeList="lifeList"></home-life>
+    <home-custom :customList="customList"></home-custom>
+    <layout-footer></layout-footer>
   </div>
 </template>
 
@@ -21,7 +21,7 @@ import HomeProduct from './components/homeProduct.vue'
 import HomeSecure from './components/homeSecure.vue'
 import HomeLife from './components/homeLife.vue'
 import HomeCustom from './components/homeCustom.vue'
-import HomeFooter from './components/homeFooter.vue'
+import LayoutFooter from '../../common/layout/footer.vue'
 import axios from 'axios'
 
 export default {
@@ -35,16 +35,34 @@ export default {
     HomeSecure,
     HomeLife,
     HomeCustom,
-    HomeFooter
+    LayoutFooter
   },
   data () {
     return {
+      sliderList: [],
+      enterList: [],
       noviceList: [],
       productLsit: [],
-      secureList: []
+      secureList: [],
+      lifeList: [],
+      customList: []
     }
   },
   methods: {
+    getSlider () {
+      axios.get('api/home/header/slider').then((res) => {
+        this.sliderList = res.data;
+      }).catch((err) => {
+        console.log(err);
+      })
+    },
+    getEnter () {
+      axios.get('api/home/header/enters').then((res) => {
+        this.enterList = res.data;
+      }).catch((err) => {
+        console.log(err);
+      })
+    },
     getNovice () {
       axios.get('/api/home/novice').then((res) => {
         this.noviceList = res.data;
@@ -65,12 +83,30 @@ export default {
       }).catch((err) => {
         console.log(err);
       })
+    },
+    getLife () {
+      axios.get('api/home/life').then((res) => {
+        this.lifeList = res.data;
+      }).catch((err) => {
+        console.log(err);
+      })
+    },
+    getCustom () {
+      axios.get('api/home/custom').then((res) => {
+        this.customList = res.data;
+      }).catch((err) => {
+        console.log(err);
+      })
     }
   },
   mounted () {
+    this.getSlider();
+    this.getEnter();
     this.getNovice();
     this.getProduct();
     this.getSecure();
+    this.getLife();
+    this.getCustom();
   }
 }
 </script>
