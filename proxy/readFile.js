@@ -11,15 +11,15 @@ function promisify(fn) {
     var args = arguments;
     return new Promise(function(resolve, reject) {
       [].push.call(args, function(err, result) {
-        if(err) {
+        if (err) {
           reject(err);
-        }else {
+        } else {
           resolve(result);
         }
       });
       fn.apply(null, args);
     });
-  }
+  };
 }
 function readDirRecur(file, callback) {
   return readdir(file).then(function(files) {
@@ -28,31 +28,33 @@ function readDirRecur(file, callback) {
       return stat(fullPath).then(function(stats) {
         if (stats.isDirectory()) {
           return readDirRecur(fullPath, callback);
-        }else{
-          if(reg.test(item)){
+        } else {
+          if (reg.test(item)) {
             callback(item, fullPath);
           }
         }
-      })
+      });
     });
     return Promise.all(files);
   });
 }
-const getMockData = (callback)=>{
+const getMockData = (callback) => {
   readDirRecur('./proxy/modules', function(item, fullPath) {
     const relPath = path.normalize(path.relative(item, fullPath));
     const map = require(relPath);
     const methods = 'GET,POST,PUT,DELETE';
     // TODO unused
     if (Object.keys(map)[0] != null) {
-      if(methods.indexOf((Object.keys(map)[0]).split(':')[0]) !== -1){
-        fileList.push(map)
+      if (methods.indexOf(Object.keys(map)[0].split(':')[0]) !== -1) {
+        fileList.push(map);
       }
     }
-  }).then(function() {
-    callback && callback(fileList)
-  }).catch(function(err) {
-    console.log(err);
-  });
-}
-module.exports = getMockData
+  })
+    .then(function() {
+      callback && callback(fileList);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+};
+module.exports = getMockData;

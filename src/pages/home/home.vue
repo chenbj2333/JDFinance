@@ -12,6 +12,7 @@ import LayoutHeader from '../../common/layout/header.vue'
 import HomeSlider from './components/homeSlider.vue'
 import HomeAdver from './components/homeAdver.vue'
 import HomeNovice from './components/novice.vue'
+import HomeProduct from './components/homeProduct'
 import axios from 'axios'
 
 export default {
@@ -20,7 +21,8 @@ export default {
     LayoutHeader,
     HomeSlider,
     HomeNovice,
-    HomeAdver
+    HomeAdver,
+    HomeProduct
   },
   data () {
     return {
