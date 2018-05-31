@@ -17,7 +17,7 @@ export default {
   @import '../../assets/styles/element.scss';
   
   .content {
-    margin-bottom: 20px;
+    margin-bottom: 120px;
     width: 100%;
     font-size: 20px;
     color: #999;

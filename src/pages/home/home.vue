@@ -9,6 +9,7 @@
     <home-life :lifeList="lifeList"></home-life>
     <home-custom :customList="customList"></home-custom>
     <layout-footer></layout-footer>
+    <layout-navbar></layout-navbar>
   </div>
 </template>
 
@@ -22,6 +23,7 @@ import HomeSecure from './components/homeSecure.vue'
 import HomeLife from './components/homeLife.vue'
 import HomeCustom from './components/homeCustom.vue'
 import LayoutFooter from '../../common/layout/footer.vue'
+import LayoutNavbar from '../../common/layout/navbar.vue'
 import axios from 'axios'
 
 export default {
@@ -35,7 +37,8 @@ export default {
     HomeSecure,
     HomeLife,
     HomeCustom,
-    LayoutFooter
+    LayoutFooter,
+    LayoutNavbar
   },
   data () {
     return {
